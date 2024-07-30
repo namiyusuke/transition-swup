@@ -1,0 +1,32 @@
+---
+import { SITE } from "../../config";
+import GlobalNavLink from "./GlobalNavLink.astro";
+
+const navLists = [
+  {
+    name: "About",
+    url: `/about/`,
+  },
+];
+---
+
+<header class="px-[5vw] py-8">
+  <div class="flex items-center justify-between">
+    <h1>
+      <a href={`${SITE.base}`}>{SITE.name}</a>
+    </h1>
+    <nav>
+      <div id="globalNav">
+        <ul>
+          {
+            navLists.map((item) => (
+              <li>
+                <GlobalNavLink href={item.url}>{item.name}</GlobalNavLink>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,29 @@
+---
+import { SITE } from "../config";
+import Layout from "@layouts/Layout.astro";
+import { Picture } from "astro:assets";
+
+import cover from "@assets/img/texture.jpg";
+---
+
+<Layout title={`About | ${SITE.name}`} description="これはAboutページ">
+  <main class="" id="swup">
+    <div class="relative">
+      <div class="absolute inset-0 place-content-center text-center">
+        <h1 class="font-bold text-white text-fluid-[24,48]">アバウトページ！</h1>
+      </div>
+      <figure class="h-screen overflow-hidden" data-trigger data-start="1" data-end="-1">
+        <Picture
+          src={cover}
+          class="h-full w-full object-cover"
+          formats={["avif", "webp"]}
+          widths={[440, 880, cover.width / 2, cover.width]}
+          sizes={`100vw`}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </main>
+</Layout>
